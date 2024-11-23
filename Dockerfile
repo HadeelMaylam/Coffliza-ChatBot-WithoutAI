@@ -12,3 +12,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Run the Streamlit application
 CMD ["streamlit", "run", "Talk_to_Coffliza.py", "--server.port=8501", "--server.enableCORS=false"]
+

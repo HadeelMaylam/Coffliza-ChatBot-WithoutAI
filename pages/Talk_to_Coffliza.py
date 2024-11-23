@@ -6,7 +6,7 @@ import random
 # Define Eliza chatbot rules
 eliza_rules = [
     # Greetings
-    (r".*\b(hi|hello|hey|ciao|سلام|مرحبًا)\b.*", [
+    (r".*\b(hi|hello|hey|ciao|)\b.*", [
         "Hello! Thank you for having me. I’m excited to discuss this opportunity.",
         "Hi there! It’s great to meet you. Let’s talk coffee and careers!",
         "Hello! I’m looking forward to learning more about this role."
