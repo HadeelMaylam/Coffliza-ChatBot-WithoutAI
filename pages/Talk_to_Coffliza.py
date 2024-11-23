@@ -5,66 +5,91 @@ import random
 
 # Define Eliza chatbot rules
 eliza_rules = [
-    (r"(who are you(.*))", ["Why are you curious?"]),
-    (r"(hi|helo|hello|hey)", [
-        "Hello! How are you today?",
-        "Hi there! What’s on your mind?",
-        "Hey! How can I help you?"
+    # Greetings
+    (r".*\b(hi|hello|hey|ciao|سلام|مرحبًا)\b.*", [
+        "Hello! Thank you for having me. I’m excited to discuss this opportunity.",
+        "Hi there! It’s great to meet you. Let’s talk coffee and careers!",
+        "Hello! I’m looking forward to learning more about this role."
     ]),
-    (r"how are you(.*)", [
-        "I'm doing well! How about you?",
-        "Why do you ask?"
+
+    # Name Inquiry
+    (r".*\b(what is your name|who are you)\b.*", [
+        "My name is Coffliza, nice to meet you! What’s yours?",
+        "I’m Coffliza, a passionate barista and coffee consultant. What about you?",
+        "I’m Coffliza! Let’s talk coffee."
     ]),
-    (r"what is (a|an) (.*) coffee", [
-        "A {1} coffee is a popular drink. Why do you ask?",
-        "That’s an interesting choice! A {1} coffee is delightful. Would you like to know more?",
-        "Ah, {1} coffee! Are you a fan?"
+
+    # Age Inquiry
+    (r".*\b(how old are you|your age)\b.*", [
+        "I’m 43 years old, and I’ve spent over 15 of those years mastering the art of coffee.",
+        "I’m 43, and coffee has been my passion for most of my life.",
+        "I’m 43! I started my coffee journey in my early twenties."
     ]),
-    (r"how to make (.*)", [
-        "Making {0} is a process! Do you prefer easy methods or something more elaborate?",
-        "To make {0}, you’ll need the right tools. Are you ready to dive in?",
-        "What makes you want to learn about making {0}?",
-        "It's a secret!"
+
+    # Location Inquiry
+    (r".*\b(where do you live|your location|where are you from)\b.*", [
+        "I live in Verona, Italy—a city with a rich coffee culture.",
+        "I’m based in Verona, Italy, where coffee is a way of life.",
+        "Verona, Italy is my home. Have you ever visited?"
     ]),
-    (r"(.*) coffee types", [
-        "There are so many! What’s your favorite so far?",
-        "Espresso, latte, cold brew... What type catches your eye?",
-        "What’s your go-to coffee type? Let’s explore it!"
+
+    # Background and Experience
+    (r".*\b(about yourself|background|who are you)\b.*", [
+        "I’m Coffliza, a barista and coffee consultant with over 15 years of experience in Italian coffee culture.",
+        "I’m a professional barista from Verona, Italy, passionate about sharing my love for coffee.",
+        "I specialize in espresso, modern brewing techniques, and creating unique coffee experiences."
     ]),
-    (r"what is your favorite coffee", [
-        "I’d say espresso—it’s bold and strong, just like me.",
-        "Great question! What’s your favorite?"
+
+    # Career Journey
+    (r".*\b(cv|career|journey|experience)\b.*", [
+        "Sure! My journey began as a barista at Espresso Italiano, where I honed my brewing skills. Then, I became a lead barista at Caffè Dolce Vita, managing a team and designing menus. Currently, I work as a coffee consultant, training baristas and creating personalized coffee experiences.",
+        "I’d be happy to! I started as a barista, progressed to lead barista roles, and now I consult cafés and host coffee workshops globally.",
+        "Of course! My career spans over 15 years, starting with hands-on experience as a barista and growing into a consultant role, sharing Italian coffee culture worldwide."
     ]),
-    (r"(.*) caffeine(.*)", [
-        "Caffeine is fascinating! Are you looking for a high-energy boost?",
-        "Too much caffeine or not enough? What’s your experience with it?",
-        "Let’s talk about caffeine. Are you a fan of strong coffee?"
+
+    # Technical Skills
+    (r".*\b(skills|coffee sourcing|expertise)\b.*", [
+        "I specialize in espresso brewing, modern brewing techniques, and coffee bean sourcing to create unique blends.",
+        "Yes, I’ve sourced beans for custom blends and worked closely with suppliers to ensure quality.",
+        "My core skills include crafting recipes, mentoring teams, and sourcing beans that fit specific flavor profiles."
     ]),
-    (r"why do you (.*)", [
-        "Why do YOU think I {0}?",
-        "Interesting question—why does it matter to you?",
-        "Hmmm, what makes you curious about that?"
+
+    # Challenges and Strengths
+    (r".*\b(challenge|complaint|problem)\b.*", [
+        "Once, a customer was dissatisfied with a drink. I listened carefully, remade their coffee to their liking, and ensured they left happy. It’s all about communication and care.",
+        "During a busy rush, a team member made repeated errors. I stayed calm, offered guidance, and helped manage the orders to keep things running smoothly.",
+        "When a supplier delayed delivery, I quickly found a local alternative to maintain service quality. Challenges are opportunities to innovate."
     ]),
-    (r"((.*) recommend (.*)|recommend)", [
-        "I’d recommend trying a flat white if you like creamy coffee.",
-        "How about a nitro cold brew? It’s unique and energizing!",
-        "What about trying something new, like an affogato? It’s espresso with ice cream!"
+
+    # Growth and Development (Coffliza asks HR)
+    (r".*\b(growth|development|progression)\b.*", [
+        "Are there training programs or workshops for employees to grow professionally?",
+        "Does the company support attending competitions or coffee events for skill enhancement?",
+        "What’s the career progression path for someone in this role?"
+    ]),
+
+    # Salary and Benefits (Coffliza asks HR)
+    (r".*\b(salary|benefit|perks)\b.*", [
+        "Could you share the salary range for this position?",
+        "What’s included in the benefits package? Are there perks like discounts or travel allowances?",
+        "Is there flexibility in the salary based on additional certifications or experience?"
     ])
 ]
 
+
 # Fallback responses
-eliza_rules2 = [
-    "That’s intriguing. Tell me more.",
-    "Why do you feel that way?",
-    "I recommend you to have a cup of coffee.",
-    "Hmmm, interesting. Could you elaborate?",
-    "Let’s explore that thought further. What do you mean?",
-    "How does that connect to coffee?"
+fallback_responses = [
+    "I didn’t quite catch that. Could you say it another way?",
+    "Hmmm, I’m not sure I understand. Can you clarify?",
+    "Could you repeat that? I want to make sure I get it right.",
+    "Interesting... but I might need more details to respond properly.",
+    "That’s intriguing. Can you elaborate a bit more?",
+    "Hmmm, could you rephrase your question?"
 ]
 
 # Preprocess user input
 def preprocess_input(user_input):
-    preprocessed = re.sub(r'[^a-zA-Z0-9\s]', '', user_input)
+    preprocessed = re.sub(r"[^\w\s]", "", user_input)  # Remove non-alphanumeric characters
     return preprocessed.strip().lower()
 
 # Generate Eliza's response
@@ -73,12 +98,12 @@ def eliza_response(user_input):
     for pattern, responses in eliza_rules:
         match = re.match(pattern, user_input, re.IGNORECASE)
         if match:
-            return random.choice(responses).format(*match.groups())
-    return random.choice(eliza_rules2)
+            response = random.choice(responses)
+            return response.format(*match.groups()) if match.groups() else response
+    return random.choice(fallback_responses)
 
 # Streamlit app with Eliza
-st.title("☕ Coffliza Chatbot")
-st.write("Welcome! I'm Eliza, your coffee chatbot. Let's chat about coffee or anything on your mind.")
+st.title("☕ Coffliza")
 
 # Initialize chat history
 if "messages" not in st.session_state:
@@ -89,7 +114,7 @@ for msg in st.session_state.messages:
     message(msg["content"], is_user=(msg["role"] == "user"))
 
 # Add input at the bottom
-if user_input := st.chat_input("Ask me about coffee!"):
+if user_input := st.chat_input("Type something to Coffliza..."):
     # Save user message in chat history
     st.session_state.messages.append({"role": "user", "content": user_input})
     message(user_input, is_user=True)
@@ -98,3 +123,5 @@ if user_input := st.chat_input("Ask me about coffee!"):
     bot_response = eliza_response(user_input)
     st.session_state.messages.append({"role": "bot", "content": bot_response})
     message(bot_response)
+
+

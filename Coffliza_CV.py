@@ -7,11 +7,20 @@ st.set_page_config(page_title="Coffliza's CV", page_icon="☕", layout="centered
 st.title("☕ Coffliza's CV")
 st.subheader("Professional Barista & Coffee Consultant")
 
-# Contact Information
+# Contact Information with Image
 st.write("---")
-st.write("📍 **Location:** Verona, Italy")
-st.write("✉️ **Email:** coffliza.barista@example.com")
-st.write("📞 **Phone:** +39 345 678 9012")
+col1, col2 = st.columns([2, 4])  # Adjust column width proportions as needed
+
+with col1:
+    # Add the image
+    st.image("eliza.jpg", caption="Coffliza", width=220 )  # Replace with actual image URL or file path
+
+with col2:
+    # Add contact information
+    st.write("                              📍 **Location:** Verona, Italy")
+    st.write("                              ✉️ **Email:** coffliza.barista@example.com")
+    st.write("                              📞 **Phone:** +39 345 678 9012")
+
 st.write("---")
 
 # Professional Summary
@@ -85,5 +94,3 @@ st.markdown(
 # Languages
 st.header("Languages")
 st.markdown("**Italian** (Native), **English** (Fluent)")
-
-
