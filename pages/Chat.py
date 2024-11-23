@@ -92,8 +92,9 @@ eliza_rules2=[
 def eliza_response(user_input):
     # First rule set
     #add button to quit
-     
+    user_input = preprocess_input(user_input)
     while user_input.lower() != "quit":
+        
       for pattern, responses in eliza_rules: # iterate over the rule set to find the pattern
           match = re.match(pattern, user_input, re.IGNORECASE)
           if match:
@@ -102,7 +103,9 @@ def eliza_response(user_input):
       return random.choice(eliza_rules2) #response from eliza_rules2, for unexpected questions
 
 
-
+def preprocess_input(user_input):
+    preprocessed = re.sub(r'(?<!\d)[%$!.,,;:’“”—-](?!\d)',' ', user_input)
+    return preprocessed.strip().lower()
 
 
 
