@@ -99,15 +99,8 @@ def eliza_response(user_input):
         match = re.match(pattern, user_input, re.IGNORECASE)
         if match:
             response = random.choice(responses)
-            return response.format(*match.groups()) if match.groups() else response
+            return response
     return random.choice(fallback_responses)
-
-# Streamlit app with Eliza
-st.title("☕ Coffliza")
-
-# Initialize chat history
-if "messages" not in st.session_state:
-    st.session_state.messages = []
 
 # Streamlit app with Eliza
 st.title("☕ Coffliza")
@@ -124,8 +117,8 @@ for i, msg in enumerate(st.session_state.messages):  # Use enumerate for unique 
 if user_input := st.chat_input("Type something to Coffliza..."):
     # Save user message in chat history
     st.session_state.messages.append({"role": "user", "content": user_input})
-    message(user_input, is_user=True, key=f"user_input_{len(st.session_state.messages)}")  # Unique key for user input
-    
+    message(user_input, is_user=True, key=f"user_input_{len(st.session_state.messages)}")  # Unique key for user inpuif user_input := st.chat_input("Type something to Coffliza..."):
+
     # Generate and display bot response
     bot_response = eliza_response(user_input)
     st.session_state.messages.append({"role": "bot", "content": bot_response})
