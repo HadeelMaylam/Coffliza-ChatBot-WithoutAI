@@ -109,19 +109,29 @@ st.title("☕ Coffliza")
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
+# Streamlit app with Eliza
+st.title("☕ Coffliza")
+
+# Initialize chat history
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
 # Display chat history
-for msg in st.session_state.messages:
-    message(msg["content"], is_user=(msg["role"] == "user"))
+for i, msg in enumerate(st.session_state.messages):  # Use enumerate for unique keys
+    message(msg["content"], is_user=(msg["role"] == "user"), key=f"message_{i}")
 
 # Add input at the bottom
 if user_input := st.chat_input("Type something to Coffliza..."):
     # Save user message in chat history
     st.session_state.messages.append({"role": "user", "content": user_input})
-    message(user_input, is_user=True)
+    message(user_input, is_user=True, key=f"user_input_{len(st.session_state.messages)}")  # Unique key for user input
     
     # Generate and display bot response
     bot_response = eliza_response(user_input)
     st.session_state.messages.append({"role": "bot", "content": bot_response})
-    message(bot_response)
+    message(bot_response, key=f"bot_response_{len(st.session_state.messages)}")  # Unique key for bot response
+
+
+
 
 
