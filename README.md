@@ -1,84 +1,82 @@
-### README: Coffliza - An AI-Powered Chatbot
+### README: Coffliza - Chatbot Powered by Regular Expressions  
 
-**Project Name**: Coffliza
+**Project Name**: Coffliza  
 
 **Description**:  
-Coffliza is an AI-powered chatbot designed to simulate the persona of a 43-year-old Italian barista applying for a job. The bot interacts with users in a simulated HR interview format, allowing them to evaluate Coffliza's responses and personality. The project explores how users engage with AI systems and aims to assess the time it takes to identify the bot as non-human.
+Coffliza is a chatbot built entirely using **regular expressions** (RegEx) without the use of artificial intelligence. It simulates the persona of a 43-year-old Italian barista and engages users in a simulated HR interview. This project aims to demonstrate how a rule-based approach can create an interactive chatbot experience while highlighting the challenges of building conversational systems without AI.
+
+---
+
+### Challenge:  
+The primary challenge of this project was creating a chatbot that could simulate human-like interactions **without relying on AI models or machine learning**. By solely depending on RegEx, the bot needed to:  
+1. Understand and respond to diverse user inputs.  
+2. Maintain a dynamic and engaging persona.  
+3. Handle unexpected inputs gracefully.  
+
+This required carefully crafting patterns and fallback mechanisms to cover a wide range of possible user queries, all while keeping the interaction simple and intuitive.
 
 ---
 
 ### Features:
-1. **Interactive Chatbot**:
-   - Built with Streamlit for a simple and intuitive interface.
-   - Uses regular expressions to match user inputs and generate relevant responses.
+1. **Pattern-Based Chatbot**:  
+   - Uses regular expressions to process and respond to user input.  
+   - Matches specific patterns to predefined responses.  
 
-2. **Dynamic Personality**:
-   - Represents Coffliza, a barista from Verona, Italy, with over 15 years of coffee expertise.
-   - Capable of discussing topics like coffee brewing, career experiences, and Italian culture.
+2. **Dynamic Persona**:  
+   - Represents Coffliza, a barista with a rich professional background in Italian coffee culture.  
 
-3. **User Experience**:
-   - Chat interface allows users to ask questions and receive tailored responses.
-   - Includes fallback responses to handle unrecognized queries gracefully.
+3. **Fallback Handling**:  
+   - Provides generic responses for inputs that do not match defined patterns.  
 
-4. **Team Contribution**:
-   - Developed by a team of four, with collaborative efforts in brainstorming, interface design, and bot development using regular expressions.
+4. **Team Collaboration**:  
+   - Developed by a team of four, each contributing to different aspects of the project.
 
 ---
 
 ### Files Included:
 1. **Talk_to_Coffliza.py**:  
-   Contains the main chatbot logic and interface implementation.  
-   Key Features:  
-   - Chat rules using regular expressions.  
-   - Dynamic responses and fallback handling.  
-   - User-friendly Streamlit interface.
+   The main chatbot logic and interface, built with Streamlit.  
+   - Handles user inputs using RegEx.  
+   - Responds dynamically to user queries.  
+   - Implements a fallback system for unmatched inputs.
 
 2. **Team.py**:  
-   Provides an overview of the project and introduces the team members involved in its development.  
-   Key Features:  
-   - Project description and purpose.  
-   - Team member roles and contributions.
+   Provides an overview of the team and project description.  
 
 3. **Coffliza_CV.py**:  
-   Displays Coffliza's professional CV in a visually appealing format using Streamlit.  
-   Key Features:  
-   - Contact details, skills, experience, education, and achievements.  
-   - A personalized image representing Coffliza.
+   Displays Coffliza’s professional CV, highlighting her skills and achievements.  
 
 4. **requirements.txt**:  
-   Lists the Python dependencies required to run the project.  
-   Key Libraries:  
-   - `streamlit` (1.27.0): For building the web interface.  
-   - `streamlit-chat` (0.0.2): For integrating the chat feature.
+   Contains the dependencies required for the project.  
 
 5. **eliza.jpg**:  
-   A visual representation of Coffliza used in the CV display.
+   A visual representation of Coffliza used in the CV.
 
 ---
 
 ### Installation:
-1. Clone the repository:
+1. Clone the repository:  
    ```bash
    git clone <repository_url>
    cd coffliza
    ```
 
-2. Install dependencies:
+2. Install dependencies:  
    ```bash
    pip install -r requirements.txt
    ```
 
-3. Run the chatbot:
+3. Run the chatbot:  
    ```bash
    streamlit run Talk_to_Coffliza.py
    ```
 
-4. Access Coffliza's CV:
+4. Access Coffliza’s CV:  
    ```bash
    streamlit run Coffliza_CV.py
    ```
 
-5. Explore the team information:
+5. Explore the team page:  
    ```bash
    streamlit run Team.py
    ```
@@ -86,21 +84,24 @@ Coffliza is an AI-powered chatbot designed to simulate the persona of a 43-year-
 ---
 
 ### Usage:
-- Launch the chatbot and interact with Coffliza by typing questions or statements.
-- Use the CV and team pages to learn more about Coffliza's background and the project team.
-- Evaluate how long it takes to determine whether Coffliza is an AI bot.
+- Launch the chatbot and interact with Coffliza by typing questions or statements.  
+- Use the CV page to explore Coffliza’s professional background.  
+- Check the team page to learn about the contributors.  
 
 ---
 
-### Authors:
-- **Alawi**: Brainstorming, main page, team page, Git/GitHub management.
-- **Ibrahim**: Brainstorming, main page, team page, Git/GitHub management.
-- **Hadeel**: Brainstorming, chat page, bot development using regular expressions.
-- **Shaden**: Brainstorming, chat page, bot development using regular expressions.
+### Team Members:
+- **Alawi**: Brainstorming, main page, team page, Git/GitHub management.  
+- **Ibrahim**: Brainstorming, main page, team page, Git/GitHub management.  
+- **Hadeel**: Brainstorming, chat page, bot development using regular expressions.  
+- **Shaden**: Brainstorming, chat page, bot development using regular expressions.  
 
 ---
 
 ### License:
-This project is for educational and experimental purposes. Redistribution and modification are permitted with proper attribution to the authors. 
+This project is for educational and experimental purposes. Redistribution and modification are permitted with proper attribution to the authors.  
 
-Enjoy chatting with Coffliza and exploring the art of conversational AI!
+---
+
+**Note**:  
+Coffliza is not powered by AI. Its behavior is entirely driven by pattern-matching logic, which makes it a unique experiment in building interactive chatbots using fundamental programming techniques.
